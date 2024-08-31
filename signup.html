@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/signin.css">
+    <style>
+        .signin-container p {
+            font-size: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <a href="/"><img class="logo" src="images/amazon_logo_dark.png" alt="" width="100px"></a>
+
+    <div class="signin-container">
+        <h1 class="signin-title">Sign Up</h1>
+        <h5 class="input-lable">Your name</h5>
+        <input type="text" id="name-last" placeholder="First and last name">
+        <p class="text-name"></p>
+        <h5 class="input-lable">Mobile number or email</h5>
+        <input type="text" id="number-phone" placeholder="Enter your number">
+        <p class="text-num"></p>
+        <h5 class="input-lable">Password</h5>
+        <input type="password" id="pass-word" placeholder="At least 6 characters">
+        <p class="text-pass"></p>
+        <button onclick="signupLogin()">Sign Up</button>
+    </div>
+
+    <div class="signin-bottom">
+        <hr>
+        <p>Have an account?</p>
+        <hr>
+    </div>
+
+    <a href="/signin.html">
+        <button class="signin-signup-btn">Login with Amazon account</button>
+    </a>
+
+    <footer>
+        <div class="footer-link">
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Help</a>
+        </div>
+        <p class="footer-copyright">@ 1996-2024, Amazon.com, Inc. or its affiliates</p>
+    </footer>
+
+
+    
+<script>
+
+function signupLogin() {
+    const nameList = document.querySelector("#name-last").value;
+    const numList = document.querySelector("#number-phone").value;
+    const passList = document.querySelector("#pass-word").value;
+
+    const textName = document.querySelector(".text-name");
+    const textNum = document.querySelector(".text-num");
+    const textPass = document.querySelector(".text-pass");
+
+    let webName = "Mamun";
+    let webNum = "01973671966";
+    let webPass = "mamun123";
+
+    if (nameList == webName && numList == webNum && passList == webPass) {
+        window.location = 'index.html'
+    }else if(nameList == webName && numList == webNum && passList !== webPass) {
+        document.getElementById("name-last").style.border = '1px solid green';
+        document.getElementById("number-phone").style.border = '1px solid green';
+        document.getElementById("pass-word").style.border = '1px solid red';
+        
+        textPass.innerHTML = "Password is incorrect";
+    }else if(nameList == webName && numList !== webNum && passList == webPass) {
+        document.getElementById("name-last").style.border = '1px solid green';
+        document.getElementById("number-phone").style.border = '1px solid red';
+        document.getElementById("pass-word").style.border = '1px solid green';
+        
+        textNum.innerHTML = "Number is incorrect";
+    }else if(nameList !== webName && numList == webNum && passList == webPass) {
+        document.getElementById("name-last").style.border = '1px solid red';
+        document.getElementById("number-phone").style.border = '1px solid green';
+        document.getElementById("pass-word").style.border = '1px solid green';
+        
+        textName.innerHTML = "Name is incorrect";
+    }else if(nameList !== webName && numList !== webNum && passList == webPass) {
+        document.getElementById("name-last").style.border = '1px solid red';
+        document.getElementById("number-phone").style.border = '1px solid red';
+        document.getElementById("pass-word").style.border = '1px solid green';
+        
+        textName.innerHTML = "Name is incorrect";
+        textNum.innerHTML = "Number is incorrect";
+    }else if(nameList == webName && numList !== webNum && passList !== webPass) {
+        document.getElementById("name-last").style.border = '1px solid green';
+        document.getElementById("number-phone").style.border = '1px solid red';
+        document.getElementById("pass-word").style.border = '1px solid red';
+        
+        textPass.innerHTML = "Password is incorrect";
+        textNum.innerHTML = "Number is incorrect";
+    }else if(nameList !== webName && numList == webNum && passList !== webPass) {
+        document.getElementById("name-last").style.border = '1px solid red';
+        document.getElementById("number-phone").style.border = '1px solid green';
+        document.getElementById("pass-word").style.border = '1px solid red';
+        
+        textPass.innerHTML = "Password is incorrect";
+        textName.innerHTML = "Name is incorrect";
+    }else {
+        document.getElementById("name-last").style.border = '1px solid red';
+        document.getElementById("number-phone").style.border = '1px solid red';
+        document.getElementById("pass-word").style.border = '1px solid red';
+
+        textPass.innerHTML = "No Answer";
+        textNum.innerHTML = "No Answer";
+        textName.innerHTML = "No Answer";
+    }
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
